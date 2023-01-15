@@ -17,7 +17,7 @@ class LoginTest extends TestCase
 
         $response = $this->postJson(route('v1.login'), [
             "email" => $user->email,
-            "password" => $user->password
+            "password" => "password"
         ]);
 
         $response->assertJson(["message" => "Login berhasil."]);
