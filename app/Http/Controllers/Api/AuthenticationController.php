@@ -21,7 +21,7 @@ class AuthenticationController extends Controller
     {
         $user = User::where('email', $request->input('email'))->first();
 
-        if (!$user || Hash::check($request->input('password'), $user->password)){
+        if (! $user || ! Hash::check($request->input('password'), $user->password)) {
             throw ValidationException::withMessages([
                 "email" => ['The provided credentials are incorrect.']
             ]);
