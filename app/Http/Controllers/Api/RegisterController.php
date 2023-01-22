@@ -10,17 +10,17 @@ use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
-    public function store(RegisterRequest $request):JsonResponse
+    public function store(RegisterRequest $request): JsonResponse
     {
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password'))
+            'password' => Hash::make($request->input('password')),
         ]);
 
         return response()->json([
-            "message" => "Registrasi berhasil.",
-            "user" => $user
+            'message' => 'Registrasi berhasil.',
+            'user' => $user,
         ], 201);
     }
 }

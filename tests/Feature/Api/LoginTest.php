@@ -4,7 +4,6 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class LoginTest extends TestCase
@@ -16,10 +15,10 @@ class LoginTest extends TestCase
         $user = User::factory()->create();
 
         $response = $this->postJson(route('v1.login'), [
-            "email" => $user->email,
-            "password" => "password"
+            'email' => $user->email,
+            'password' => 'password',
         ]);
 
-        $response->assertJson(["message" => "Login berhasil."]);
+        $response->assertJson(['message' => 'Login berhasil.']);
     }
 }

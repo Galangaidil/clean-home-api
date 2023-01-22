@@ -4,7 +4,6 @@ namespace Tests\Feature\Api;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class RegisterTest extends TestCase
@@ -21,7 +20,7 @@ class RegisterTest extends TestCase
             'name' => 'Apriani',
             'email' => 'apriani.kitana@gmail.com',
             'password' => 'password',
-            'password_confirmation' => 'password'
+            'password_confirmation' => 'password',
         ];
     }
 
@@ -49,6 +48,4 @@ class RegisterTest extends TestCase
 
         $response->assertUnprocessable();
     }
-
-
 }
