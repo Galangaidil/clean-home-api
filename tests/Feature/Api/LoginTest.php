@@ -38,5 +38,12 @@ class LoginTest extends TestCase
         $response->assertUnprocessable();
     }
 
+    public function test_email_and_password_is_required()
+    {
+        $response = $this->postJson(route('v1.login'));
+
+        $response->assertUnprocessable();
+    }
+
 
 }
